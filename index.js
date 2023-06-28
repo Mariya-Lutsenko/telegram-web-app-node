@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const logger = require("morgan");
 
-const token = "6221220847:AAEi92FkKsfb31xfasus7OgPfycFEtwUz5g";
+const token = "5887552937:AAEzA_YUBpQa7rjtw3WT-wWDjpTJAP-3iEk";
 const webAppUrl = "https://spiffy-pika-dee0b7.netlify.app";
 
 const bot = new TelegramBot(token, { polling: true });
@@ -51,7 +51,7 @@ bot.on("message", async (msg) => {
       setTimeout(async () => {
         await bot.sendMessage(
           chatId,
-          "Всб інформацію ви отримаєте у цьому чаті"
+          "Всю інформацію ви отримаєте у цьому чаті"
         );
       }, 3000);
     } catch (error) {
