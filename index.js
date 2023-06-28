@@ -1,14 +1,18 @@
 const TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 const cors = require("cors");
+const logger = require("morgan");
 
 const token = "6221220847:AAEi92FkKsfb31xfasus7OgPfycFEtwUz5g";
 const webAppUrl = "https://spiffy-pika-dee0b7.netlify.app";
 
 const bot = new TelegramBot(token, { polling: true });
 const app = express();
-app.use(express.json());
+const formatsLogger = app.get("env") === "development" ? "dev" : "short";
+app.use(logger(formatsLogger));
 app.use(cors());
+app.use(express.json());
+app.use(express.static("public"));
 
 bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
